@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
 import styled from 'styled-components'
+import FiltroPrecos from './Componentes/FiltroPrecos/FiltroPrecos'
+import ListaDeProdutos from './Componentes/Produto/ListaDeProdutos'
 const testimg = 'https://p7.hiclipart.com/preview/744/464/14/rocket-launch-spacecraft-buran-stock-photography-rockets.jpg'
 
 
@@ -22,7 +24,7 @@ width: 60px;
 height: 60px;
 position: absolute;
 outline: none;
-margin: -50vh 48vw ;
+margin: -50vh 0vw ;
 &:hover {
   background-color: #E8E5DA;
 };
@@ -99,11 +101,55 @@ grid-column: 1/4;
 
 class App extends React.Component {
   state = {
-    VisorAtivo: false,
+    produtos: [
+      {
+          id:1,
+          nome:'Channel',
+          preco:390,
+          imagem:'shorturl.at/joHST',
+          quantidade: 1,
+      },
+      {
+          id:2,
+          nome:'Cartier',
+          preco:189,
+          imagem:'shorturl.at/wxFGM',
+          quantidade: 1,
+      },
+      {
+          id:3,
+          nome:'Roja Parfum',
+          preco:998,
+          imagem:'shorturl.at/ozUWY',
+          quantidade: 1,
+      },
+      {
+          id:4,
+          nome:'Christian Dior',
+          preco:673,
+          imagem:'shorturl.at/glzNT',
+          quantidade: 1,
+      },
+      {
+          id:5,
+          nome:'Eau du Soir',
+          preco:348,
+          imagem:'shorturl.at/iorP2',
+          quantidade: 1,
+      },
+      {
+          id:6,
+          nome:'Paco Rabanne',
+          preco:1020,
+          imagem:'shorturl.at/gvGL7',
+          quantidade: 1,
+      },
+  ]
+   
   }
 
-  
-  
+
+
   AbrirVisor = () => {
     this.setState({
       VisorAtivo: !this.state.VisorAtivo
@@ -123,32 +169,7 @@ class App extends React.Component {
             <input></input>
           </Filtro>
           <Produtos>
-          <div>
-              <p>Produto 1</p>
-              <div>
-              <img src={testimg} />
-              </div>
-   </div>
-            <div>
-              Produto 2
-               
-    </div>
-            <div>
-              Produto 3
-               
-     </div>
-            <div>
-              Produto 4
-               
-     </div>
-            <div>
-              Produto 5
-               
-     </div>
-            <div>
-              Produto 6
-               
-     </div>
+            <ListaDeProdutos array=this.produtos/>
           </Produtos>
           <Carrinho>
             carrinho
@@ -163,13 +184,13 @@ class App extends React.Component {
       return (
         <div>
           <TelaInicio className='top-bar'>
-          <h1>Bem Vindo</h1>
-            </TelaInicio>
+            <h1>Bem Vindo</h1>
+          </TelaInicio>
           <Botaoabrir
             onClick={this.AbrirVisor}>
-              Entrar
+            Entrar
       </Botaoabrir>
-       </div >
+        </div >
       )
   }
   render() {
