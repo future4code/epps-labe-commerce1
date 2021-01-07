@@ -1,6 +1,10 @@
 import React from 'react';
 import './App.css';
 import styled from 'styled-components'
+const testimg = 'https://p7.hiclipart.com/preview/744/464/14/rocket-launch-spacecraft-buran-stock-photography-rockets.jpg'
+
+
+
 
 const TelaInicio = styled.div`
 display: grid;
@@ -23,10 +27,9 @@ margin: -50vh 48vw ;
   background-color: #E8E5DA;
 };
 `
-
 const ContainerPrincipal = styled.div`
 display: grid;
-grid-template-columns: 25% 50% 25%;
+grid-template-columns: 20% 65% 15%;
 grid-template-rows: 5% 90% 5%;
 position: relative; 
 height:100vh;
@@ -120,26 +123,31 @@ class App extends React.Component {
             <input></input>
           </Filtro>
           <Produtos>
-            <div>
-              Produto 1
+          <div>
+              <p>Produto 1</p>
+              <div>
+              <img src={testimg} />
+              </div>
    </div>
             <div>
               Produto 2
+               
     </div>
             <div>
               Produto 3
+               
      </div>
             <div>
               Produto 4
+               
      </div>
             <div>
               Produto 5
+               
      </div>
             <div>
               Produto 6
-     </div>
-            <div>
-              Produto 7
+               
      </div>
           </Produtos>
           <Carrinho>

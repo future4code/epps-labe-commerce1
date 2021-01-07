@@ -8,3 +8,15 @@ h1 {
   flex: 1;
   background-color: cornflowerblue;
   }
+
+div{
+height: 50%;
+width: 100%;
+flex-direction: column;
+justify-content: center;
+text-align: center;
+}
+
+img{
+width: 40%; 
+}
