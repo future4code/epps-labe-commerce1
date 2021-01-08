@@ -1,0 +1,19 @@
+body {    
+    margin-left: 30px;
+    font-family: Oswald;
+ }
+
+h1, h2, h3 {
+    font-weight: 300;
+    margin: 0;
+}
+
+h2, h3 {
+    margin: 0;
+}
+button {
+    background-color: rgb(205, 235, 240);
+}
+p {
+    font-size: 20px;
+}
