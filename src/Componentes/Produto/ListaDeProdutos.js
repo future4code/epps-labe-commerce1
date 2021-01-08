@@ -1,68 +1,48 @@
 import React from 'react'
+import styled from 'styled-components'
 
+const ProdutoList = styled.div`
+display: grid;
+grid-template-columns: repeat(3,1fr);
+grid-template-rows:repeat( 3,1fr);
+justify-content: space-around;
+align-items: center;
+height:200%;
+width: 100%;
+grid-row: 2;
+grid-column: 2;
+`
+const ProdutoItem = styled.div`
+display: flex;
+justify-content: space-between;
+text-align: center;
+flex-direction:column;
+align-items: center;
+background-color: #f2f2f2;
+height:90%;
+width: 90%;
+margin-left:5%;
+border-radius: 10%;
+ `
 
-class ListaDeProdutos extends React.Component{
-    state = {
-        produtos: [
-          {
-              id:1,
-              nome:'Channel',
-              preco:390,
-              imagem:'shorturl.at/joHST',
-              quantidade: 1,
-          },
-          {
-              id:2,
-              nome:'Cartier',
-              preco:189,
-              imagem:'shorturl.at/wxFGM',
-              quantidade: 1,
-          },
-          {
-              id:3,
-              nome:'Roja Parfum',
-              preco:998,
-              imagem:'shorturl.at/ozUWY',
-              quantidade: 1,
-          },
-          {
-              id:4,
-              nome:'Christian Dior',
-              preco:673,
-              imagem:'shorturl.at/glzNT',
-              quantidade: 1,
-          },
-          {
-              id:5,
-              nome:'Eau du Soir',
-              preco:348,
-              imagem:'shorturl.at/iorP2',
-              quantidade: 1,
-          },
-          {
-              id:6,
-              nome:'Paco Rabanne',
-              preco:1020,
-              imagem:'shorturl.at/gvGL7',
-              quantidade: 1,
-          },
-      ]
-       
-      }
-    
-
-    render(){                  
-                            
-            
-        return(
-        <div>
-            <span></span>
-            <span></span>                    
-        </div>
-        )
+function ListaDeProdutos (props) {
         
-    }
-
+        return (
+            <div>
+                <ProdutoList>
+                    {props.produtos.map(item => {
+                        return (
+                            <ProdutoItem>
+                                <p>{item.nome}</p>
+                                <img src={item.imagem} />
+                                <p> {item.preco}</p>
+                            </ProdutoItem>
+                        )
+                    })}
+                </ProdutoList>
+             </div>
+        )
+ 
 }
 
 export default ListaDeProdutos
