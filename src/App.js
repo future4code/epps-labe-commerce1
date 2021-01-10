@@ -108,34 +108,14 @@ const produtosLista = [
     imagem: img6,
     quantidade: 1,
   },
-  {
-    id: 7,
-    nome: 'Paco Rabanne',
-    preco: 880,
-    imagem: img2,
-    quantidade: 1,
-  },
-  {
-    id: 8,
-    nome: 'Paco Rabanne',
-    preco: 599,
-    imagem: img4,
-    quantidade: 1,
-  },
-  {
-    id: 9,
-    nome: 'Paco Rabanne',
-    preco: 1210,
-    imagem: img1,
-    quantidade: 1,
-  },
 ];
+let CarrinhoLista = [];
 
 class App extends React.Component {
   state = {
     VisorAtivo: false,
-    ValorMin: 0,
-    ValorMax: 0,
+    ValorMin: 1,
+    ValorMax: 2000,
     NomeProduto: '',
   }
 
@@ -144,11 +124,12 @@ class App extends React.Component {
       VisorAtivo: !this.state.VisorAtivo
     })
   }
-  CarregarTela = () => {
+
+
+  CarregarCarrinho = () => {
     if (this.state.VisorAtivo) {
       return (
-        <CarrinhoCompras>
-
+        <CarrinhoCompras lista= {produtosLista}>
         </CarrinhoCompras>
       )
     } else
@@ -175,26 +156,24 @@ class App extends React.Component {
   }
 
 
-
   render() {
     return (
       <ContainerPrincipal>
         <Botaoabrir className='carrinho'
           onClick={this.AbrirVisor}>
         </Botaoabrir>
-        {this.CarregarTela()}
+        {this.CarregarCarrinho()}
         <Header>
           header
         </Header>
-        <FiltroPodutos lista={produtosLista} min={this.state.ValorMin} max={this.state.ValorMax} nome={this.state.NomeProduto} />
+        <FiltroPodutos  lista={produtosLista} min={this.state.ValorMin} max={this.state.ValorMax} nome={this.state.NomeProduto} />
         <Filtro>
           <h2>FiltroPreços</h2>
           <ul>
-            <input type='number'  placeholder="Valor Min" onChange={this.onChangemin}></input>
-            <input type='number'  placeholder='Valor Max' onChange={this.onChangemax}></input>
-            <input type='string'  placeholder='Nome' onChange={this.onChangename}></input>
+            <input type='number' placeholder="Valor Min" onChange={this.onChangemin}></input>
+            <input type='number' placeholder='Valor Max' onChange={this.onChangemax}></input>
+            <input type='string' placeholder='Nome' onChange={this.onChangename}></input>
           </ul>
-
         </Filtro>
         <Footer>
           footer
