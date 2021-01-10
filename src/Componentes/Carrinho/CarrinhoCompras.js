@@ -18,30 +18,33 @@ z-index:1000;
 `
 const ProdutoList = styled.ul`
   padding: 0;
-  width: 200px;
+  width: 100%;
 `
 const ProdutoItem = styled.li`
 text-align: center;
-width:50px;
+width: 100%;
+height:40%;
  `
 
-class CarrinhoCompras extends React.Component{
- 
 
-    render(){                  
-                            
-            
-        return(
+function CarrinhoCompras(props) {
+
+  
+    return (
+   
         <Carrinho>
-            <ProdutoList>
-                 <ProdutoItem>1</ProdutoItem> 
-                 <ProdutoItem>2</ProdutoItem> 
-                 <ProdutoItem>3</ProdutoItem> 
+            <ProdutoList> nome preço quantidade 
+            {props.lista.map(item => {
+                    return (
+                        <ProdutoItem>
+                            <p>{item.nome} {item.preco} {item.quantidade}</p>
+                        </ProdutoItem>
+                    )
+                })}
             </ProdutoList>
         </Carrinho>
-        )
         
-    }
+    )
 
 }
 
